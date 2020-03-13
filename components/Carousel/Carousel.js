@@ -17,3 +17,52 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+const carouselParent = document.querySelector(".carousel-container");
+carouselParent.appendChild(createCarusel());
+
+const rightBtn = document.querySelector(".right-button");
+const leftBtn = document.querySelector(".left-button");
+const imgs = document.querySelector(".carousel-container .carousel img");
+
+let count = 1;
+
+function createCarusel() {
+  const carousel = document.createElement("div");
+  const left = document.createElement("div");
+  const img = document.createElement("img");
+  const right = document.createElement("div");
+
+  carousel.classList.add("carousel");
+  left.classList.add("left-button");
+  right.classList.add("right-button");
+
+  carousel.appendChild(left);
+  carousel.appendChild(img);
+  carousel.appendChild(right);
+
+  img.src = "../../assets/carousel/img1.jpeg";
+  return carousel;
+}
+
+rightBtn.addEventListener("click", () => {
+  if (count >= 3) {
+    count = -1;
+  }
+  count++;
+  imgs.src = `../../assets/carousel/img${count}.jpeg`;
+  if (count === 3) {
+    count = -1;
+  }
+});
+
+leftBtn.addEventListener("click", () => {
+  if (count <= 0) {
+    count = 4;
+  }
+  count--;
+  imgs.src = `../../assets/carousel/img${count}.jpeg`;
+  if (count === 0) {
+    count = 4;
+  }
+});
