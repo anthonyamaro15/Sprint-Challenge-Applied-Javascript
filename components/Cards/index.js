@@ -23,6 +23,7 @@ const cardParent = document.querySelector(".cards-container");
 function getData() {
   axios.get(`https://lambda-times-backend.herokuapp.com/articles`).then(res => {
     const object = res.data.articles;
+    //  console.log(object);
     for (let key in object) {
       let arr = object[key];
       arr.forEach(lang => {
