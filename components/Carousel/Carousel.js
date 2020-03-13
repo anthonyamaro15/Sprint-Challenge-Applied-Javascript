@@ -48,9 +48,8 @@ function createCarusel() {
 rightBtn.addEventListener("click", () => {
   count++;
   imgs.src = `../../assets/carousel/img${count}.jpeg`;
-
-  if (count === 4) {
-    count = 0;
+  if (count === 3) {
+    count = -1;
   }
 });
 
@@ -58,6 +57,6 @@ leftBtn.addEventListener("click", () => {
   if (count === 0) {
     count = 4;
   }
-  imgs.src = `../../assets/carousel/img${count}.jpeg`;
   count--;
+  imgs.src = `../../assets/carousel/img${count}.jpeg`;
 });
