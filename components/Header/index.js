@@ -32,3 +32,7 @@ function Header() {
 }
 
 headerParent.appendChild(Header());
+
+headerParent.addEventListener("click", e => {
+  console.log(e);
+});
